@@ -1,0 +1,6 @@
+    do {
+	num_bytes = read ( server_fd, buf, MAX_LINE );
+	if ( error_read_server  ( server_fd, num_bytes ) ) { return; }
+	num_bytes = write_all ( client_fd, buf, num_bytes );
+	if ( error_write_client ( client_fd, num_bytes ) ) { return; }
+    } while ( num_bytes > 0 );
